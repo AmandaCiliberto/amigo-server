@@ -5,7 +5,7 @@ const commentSchema = new Schema({
     date:     {type: Date, default: Date.now },
     userId:   {type: String },
     content:  {type: String },
-    project: { type: Schema.Types.ObjectId, ref: "Project" },
+    reco: { type: Schema.Types.ObjectId, ref: "Reco" },
 });
 
-module.exports = model("Comment", taskSchema);
+module.exports = model("Comment", commentSchema);

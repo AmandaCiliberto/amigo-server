@@ -3,16 +3,16 @@ const router = express.Router();
 const mongoose = require("mongoose");
 
 const Comment = require("../models/Comment.model");
-const Project = require("../models/Project.model");
+const Reco = require("../models/Reco.model");
 
-//  POST /api/tasks  -  Creates a new task
+//  POST /api/comments  -  Creates a new comment
 router.post("/comments", (req, res, next) => {
-  const { title, description, projectId } = req.body;
+  const { date, userId, content, recoId } = req.body;
 
-  Task.create({ title, description, project: projectId })
-    .then((newTask) => {
-      return Project.findByIdAndUpdate(projectId, {
-        $push: { tasks: newTask._id },
+  Comment.create({ date, userId, content, reco: recoId })
+    .then((newComment) => {
+      return Reco.findByIdAndUpdate(recoId, {
+        $push: { comment: newComment._id },
       });
     })
     .then((response) => res.json(response))

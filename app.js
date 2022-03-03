@@ -12,11 +12,11 @@ require("./config")(app);
 const allRoutes = require("./routes");
 app.use("/api", allRoutes);
 
-const projectRouter = require("./routes/project.routes");
-app.use("/api", isAuthenticated, projectRouter);
+const recoRouter = require("./routes/reco.routes");
+app.use("/api", isAuthenticated, recoRouter);
 
-const taskRouter = require("./routes/task.routes");
-app.use("/api", isAuthenticated, taskRouter);
+const commentRouter = require("./routes/comment.routes");
+app.use("/api", isAuthenticated, commentRouter);
 
 const authRouter = require("./routes/auth.routes"); //  <== IMPORT
 app.use("/auth", authRouter);

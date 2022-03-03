@@ -2,7 +2,7 @@ API documentation
 
 ### API Documentation
 
-All routes and data models for the project's API. I've used verbs to specify the type of operation being done and nouns when naming endpoints.
+All routes and data models for the API. I've used verbs to specify the type of operation being done and nouns when naming endpoints.
 
 #### Routes
 
