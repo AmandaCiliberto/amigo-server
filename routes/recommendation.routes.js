@@ -23,7 +23,8 @@ router.post(
   "/recommendations", 
   (req, res, next) => {
     const { userId, content, imageUrl, location } = req.body;
-    // console.log('recommendation body: ', req.body)
+    console.log('userId: ')
+    console.log(userId)
 
     Recommendation.create({ userId, content, imageUrl, location, comment: [] })
       .then((createdRecommendation) => {
