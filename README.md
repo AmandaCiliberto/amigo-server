@@ -8,13 +8,13 @@ All routes and data models for the API. I've used verbs to specify the type of o
 
 ##### Recommendation routes
 
-| HTTP verb | URL                        | Request body | Action                         |
-| --------- | -------------------------- | ------------ | -----------------------------  |
-| GET       | `/api/recos `              | (empty)      | Returns all the recommendations|
-| POST      | `/api/recos`               | JSON         | Adds a new recommendation      |
-| GET       | `/api/recos/:recoId`       | (empty)      | Returns the specified reco.    |
-| PUT       | `/api/recos/:recoId`       | JSON         | Edits the specified reco.      |
-| DELETE    | `/api/recos/:recosId`      | (empty)      | Deletes the specified reco.    |
+| HTTP verb | URL                                       | Request body | Action                                 |
+| --------- | ----------------------------------------- | ------------ | -----------------------------          |
+| GET       | `/api/recommendations `                   | (empty)      | Returns all the recommendations        |
+| POST      | `/api/recommendations`                    | JSON         | Adds a new recommendation              |
+| GET       | `/api/recommendations/:recommendationId`  | (empty)      | Returns the specified recommendation   |
+| PUT       | `/api/recommendations/:recommendationId`  | JSON         | Edits the specified recommendation     |
+| DELETE    | `/api/recommendations/:recommendationId`  | (empty)      | Deletes the specified recommendation   |
 
 ##### Comments routes
 

@@ -8,8 +8,7 @@ const logger = require("morgan");
 // ℹ️ Needed when we deal with cookies (we will when dealing with authentication)
 // https://www.npmjs.com/package/cookie-parser
 const cookieParser = require("cookie-parser");
-
-const cors = require("cors"); // <== IMPORT
+const cors = require("cors");
 
 // Middleware configuration
 module.exports = (app) => {
@@ -19,7 +18,7 @@ module.exports = (app) => {
 
   app.use(
     cors({
-      origin: ["http://0.0.0.0:3000"],
+      origin: process.env.ORIGIN || "http://localhost:3000",
     })
   );
 

@@ -3,15 +3,15 @@ const router = express.Router();
 const mongoose = require("mongoose");
 
 const Comment = require("../models/Comment.model");
-const Reco = require("../models/Reco.model");
+const Recommendation = require("../models/Recommendation.model");
 
 //  POST /api/comments  -  Creates a new comment
 router.post("/comments", (req, res, next) => {
-  const { date, userId, content, recoId } = req.body;
+  const { date, userId, content, recommendationId } = req.body;
 
-  Comment.create({ date, userId, content, reco: recoId })
+  Comment.create({ date, userId, content, recommendationId })
     .then((newComment) => {
-      return Reco.findByIdAndUpdate(recoId, {
+      return Recommendation.findByIdAndUpdate(recommendationId, {
         $push: { comment: newComment._id },
       });
     })
