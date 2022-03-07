@@ -23,8 +23,6 @@ router.post(
   "/recommendations", 
   (req, res, next) => {
     const { userId, content, imageUrl, location } = req.body;
-    console.log('userId: ')
-    console.log(userId)
 
     Recommendation.create({ userId, content, imageUrl, location, comment: [] })
       .then((createdRecommendation) => {
@@ -37,13 +35,12 @@ router.post(
 
 //  GET /api/recommendations -  Retrieves all of the recommendations
 router.get("/recommendations", (req, res, next) => {
-console.log('inside get recos');
 
   Recommendation.find()
     .populate('userId', 'name')
     .then((allRecommendations) => {
       // console.log("Testing");
-      console.log(allRecommendations);
+      // console.log(allRecommendations);
       res.status(200).json(allRecommendations);
       })
     .catch((err) => res.json(err));

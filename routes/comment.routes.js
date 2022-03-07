@@ -8,7 +8,7 @@ const Recommendation = require("../models/Recommendation.model");
 //  POST /api/comments  -  Creates a new comment
 router.post("/comments", (req, res, next) => {
   const { date, creator, content, recommendation } = req.body;
-  console.log('req body', req.body)
+  console.log('req body post comments', req.body)
 
   Comment.create({ date, creator, content, recommendation })
     .then((newComment) => {
@@ -22,14 +22,15 @@ router.post("/comments", (req, res, next) => {
 
 //**** new - delete if not work*/
 //  GET /api/comments -  Retrieves all of the comments
-router.get("/comments", (req, res, next) => {
-console.log('inside get comments');
+router.get("/comments/:recommendationId", (req, res, next) => {
+  const recommendationId = req.params.recommendationId;
+  console.log('recommendation id', recommendationId)
 
-  Comment.find()
+  Comment.find(recommendationId)
     .then((allComments) => {
-      console.log('all comments', allComments);
+      console.log("all comments", allComments);
       res.status(200).json(allComments);
-      })
+    })
     .catch((err) => res.json(err));
 });
 
