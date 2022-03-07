@@ -39,8 +39,6 @@ router.get("/recommendations", (req, res, next) => {
   Recommendation.find()
     .populate('userId', 'name')
     .then((allRecommendations) => {
-      // console.log("Testing");
-      // console.log(allRecommendations);
       res.status(200).json(allRecommendations);
       })
     .catch((err) => res.json(err));
