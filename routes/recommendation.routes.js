@@ -40,7 +40,7 @@ router.get("/recommendations", (req, res, next) => {
 console.log('inside get recos');
 
   Recommendation.find()
-    .populate('userId', 'name').populate('comment') 
+    .populate('userId', 'name')
     .then((allRecommendations) => {
       // console.log("Testing");
       console.log(allRecommendations);
@@ -61,7 +61,7 @@ router.get("/recommendations/:recommendationId", (req, res, next) => {
   // Each Reco document has `comments` array holding `_id`s of Comment documents
   // We use .populate() method to swap the `_id`s for the actual Comment documents
   Recommendation.findById(recommendationId)
-    .populate("comment")
+    .populate('userId'/* , 'name' */).populate('comments')
     .then((recommendation) => res.status(200).json(recommendation))
     .catch((error) => res.json(error));
 });

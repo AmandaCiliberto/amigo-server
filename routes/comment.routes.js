@@ -7,16 +7,31 @@ const Recommendation = require("../models/Recommendation.model");
 
 //  POST /api/comments  -  Creates a new comment
 router.post("/comments", (req, res, next) => {
-  const { date, userId, content, recommendationId } = req.body;
+  const { date, creator, content, recommendation } = req.body;
+  console.log('req body', req.body)
 
-  Comment.create({ date, userId, content, recommendationId })
+  Comment.create({ date, creator, content, recommendation })
     .then((newComment) => {
-      return Recommendation.findByIdAndUpdate(recommendationId, {
-        $push: { comment: newComment._id },
+      return Recommendation.findByIdAndUpdate(recommendation, {
+        $push: { comments: newComment._id },
       });
     })
     .then((response) => res.json(response))
     .catch((err) => res.json(err));
 });
+
+//**** new - delete if not work*/
+//  GET /api/comments -  Retrieves all of the comments
+router.get("/comments", (req, res, next) => {
+console.log('inside get comments');
+
+  Comment.find()
+    .then((allComments) => {
+      console.log('all comments', allComments);
+      res.status(200).json(allComments);
+      })
+    .catch((err) => res.json(err));
+});
+
 
 module.exports = router;
