@@ -40,10 +40,10 @@ router.get("/recommendations", (req, res, next) => {
 console.log('inside get recos');
 
   Recommendation.find()
-    .populate("comment")
+    .populate('userId', 'name').populate('comment') 
     .then((allRecommendations) => {
       // console.log("Testing");
-      // console.log(allRecommendations);
+      console.log(allRecommendations);
       res.status(200).json(allRecommendations);
       })
     .catch((err) => res.json(err));
