@@ -20,7 +20,7 @@ router.post("/comments", (req, res, next) => {
     .catch((err) => res.json(err));
 });
 
-//**** new - delete if not work*/
+
 //  GET /api/comments -  Retrieves all of the comments
 router.get("/comments/:recommendationId", (req, res, next) => {
   const recommendationId = req.params.recommendationId;
