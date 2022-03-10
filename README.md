@@ -1,4 +1,4 @@
-# AMIGO #
+# AMIGO SERVER#
 
 ### Project Description 📑
 
