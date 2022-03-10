@@ -37,7 +37,7 @@ router.post(
 router.get("/recommendations", (req, res, next) => {
 
   Recommendation.find()
-    .populate('userId', 'name')
+    .populate("userId","name")
     .then((allRecommendations) => {
       res.status(200).json(allRecommendations);
       })
@@ -52,14 +52,23 @@ router.get("/recommendations/:recommendationId", (req, res, next) => {
     res.status(400).json({ message: "Specified id is not valid" });
     return;
   }
-
-  // Each Reco document has `comments` array holding `_id`s of Comment documents
-  // We use .populate() method to swap the `_id`s for the actual Comment documents
   Recommendation.findById(recommendationId)
-    .populate('userId'/* , 'name' */).populate('comments')
+    .populate('userId').populate('comments')
     .then((recommendation) => res.status(200).json(recommendation))
     .catch((error) => res.json(error));
 });
+
+//GET /api/profile - all recommendations by specific user
+router.get('/profile/:userId', (req,res) => {
+  const { userId } = req.params;
+
+  Recommendation.find({ userId })
+    .populate("userId")
+    .then((myrecommendation) => {
+      res.json({ myrecommendation });
+    })
+    .catch((error) => res.json(error));
+})
 
 // PUT  /api/recommendations/:recommendationId  -  Updates a specific reco by id
 router.put("/recommendations/:recommendationId",  (req, res, next) => {
