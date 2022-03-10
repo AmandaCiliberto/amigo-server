@@ -149,4 +149,4 @@ All routes and data models for the API. I've used verbs to specify the type of o
 
 ### About Me 👩
 
-My name is Amanda Rodrigues, I'm a fullstack web developer based in Denmark and this project has been developed by me in connection with the Ironhack Full Stack Web Development bootcamp. 
+My name is Amanda Rodrigues, I'm a Digital Product Designer shifting to fullstack web development based in Denmark. This project has been developed by me in connection with the Ironhack Full Stack Web Development bootcamp. 
