@@ -126,7 +126,13 @@ All routes and data models for the API. I've used verbs to specify the type of o
 ### Project Links 💫
 
 [AMIGO's SERVER REPO](https://github.com/AmandaCiliberto/amigo-server/ "AMIGO's SERVER REPO")
+
+<hr>
+
 [AMIGO's CLIENT REPO](https://github.com/AmandaCiliberto/amigo-client/ "AMIGO's CLIENT REPO")
+
+<hr>
+
 [TRY AMIGO HERE](https://monamigo.netlify.app/ "TRY AMIGO HERE")
 
 
